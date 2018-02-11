@@ -38,19 +38,26 @@ int main(int argc, char** argv){
   while(1){
     
     printf("Would you like to (c)ontinue, (s)ave, (l)oad, or (q)uit? ");
-    scanf("%c ",&option);
+    scanf(" %c",&option);
     int status;
-    FILE* in;
+    FILE* save;
     switch(option){
 
       case('s'):
+        save = fopen("File","w");
+        fclose(save);
         for(i = 0; i < r; i++){
          write_file("File",board[i],c);
         }
         break;
       case('l'):
-        status = read_file("File",board);
-        printf("%d\n",status);
+        if((save = fopen("File","r")) == (FILE*)NULL){
+          printf("Save file not found!\n");
+        }
+        else{
+          status = read_file("File", board);
+        }
+        fclose(save);
         break;
       case('q'):
         exit(0);

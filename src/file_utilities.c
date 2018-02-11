@@ -19,7 +19,6 @@ int read_file( char* filename, char **buffer ){
     //Returns a -1 to the main function to signify no file exists.
     return -1;
   }
-  printf("Read file.\n");
   fclose(in);
   return 0;
 
