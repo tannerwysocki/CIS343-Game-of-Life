@@ -81,7 +81,7 @@ int main(int argc, char** argv){
 
 }
 
-void play_move(char board**, int r, int c){
+void play_move(char** board, int r, int c){
 
 
 }
