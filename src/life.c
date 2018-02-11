@@ -53,10 +53,20 @@ int main(int argc, char** argv){
       case('l'):
         if((save = fopen("File","r")) == (FILE*)NULL){
           printf("Save file not found!\n");
-          fclose(save);
         }
         else{
           status = read_file("File", board);
+        }
+        for(i = 0; i < r; i++){
+
+          for(j = 0; j < c; j++){
+          
+            printf("%c  ",board[i][j]);
+
+          }
+
+          printf("\n");
+
         }
         fclose(save);
         break;
@@ -68,6 +78,11 @@ int main(int argc, char** argv){
 
   }
   return 0;
+
+}
+
+void play_move(char board**, int r, int c){
+
 
 }
 
