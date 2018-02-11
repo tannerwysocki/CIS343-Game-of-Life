@@ -21,17 +21,32 @@ int main(int argc, char** argv){
   }
   int r = atoi(argv[1]), c = atoi(argv[2]);
   char option;
-  char** board = (char**)malloc(r*c*sizeof(char));
+  char** board = (char**)malloc(r*c*sizeof(char*));
+  int i,j;
+  for(i = 0; i < r; i++){
+   
+    board[i] = (char*)malloc(r*c*sizeof(char));
+    for(j = 0; j < c; j++){
+      
+      board[i][j] = '-';
+      printf("%c  ",board[i][j]);
+    }
+    printf("\n");
+
+  }
   printf("Welcome to Conway's Game of Life!\n");
   while(1){
     
-    printf("Would you like to (c)ontinue, (s)ave, (l)oad, or (q)uit?");
-    scanf("%c",&option);
+    printf("Would you like to (c)ontinue, (s)ave, (l)oad, or (q)uit? ");
+    scanf("%c ",&option);
     int status;
+    FILE* in;
     switch(option){
 
       case('s'):
-        write_file("File",*board,5);
+        for(i = 0; i < r; i++){
+         write_file("File",board[i],c);
+        }
         break;
       case('l'):
         status = read_file("File",board);
@@ -39,9 +54,9 @@ int main(int argc, char** argv){
         break;
       case('q'):
         exit(0);
-        break;
     
     }
+    printf("\n");
 
   }
   return 0;

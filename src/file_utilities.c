@@ -27,8 +27,14 @@ int read_file( char* filename, char **buffer ){
 
 int write_file( char* filename, char *buffer, int size){
   
-  FILE* out = fopen(filename,"w");
-  printf("Write file.\n");
+  FILE* out = fopen(filename,"a");
+  int i;
+  for(i = 0; i < size; i++){
+
+    fprintf(out,"%c  ",buffer[i]);
+    
+  }
+  fprintf(out,"\n");
   fclose(out);
   return 0;
 
