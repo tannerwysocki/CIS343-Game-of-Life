@@ -53,6 +53,7 @@ int main(int argc, char** argv){
       case('l'):
         if((save = fopen("File","r")) == (FILE*)NULL){
           printf("Save file not found!\n");
+          fclose(save);
         }
         else{
           status = read_file("File", board);
